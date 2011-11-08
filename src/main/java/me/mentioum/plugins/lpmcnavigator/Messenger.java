@@ -22,7 +22,7 @@ public class Messenger {
         {
             logger = Logger.getLogger("minecraft");
             plugin = p;
-            prefix = "[LPMCNavigator] ";
+            prefix = ChatColor.BLUE + "[LPMCNavigator] " + ChatColor.WHITE;
             LogInfo(prefix + plugin.getDescription().getName() + " is disabled in config.yml Plugin will now disable itself!");
         }        
                 public static void Shutdown(Plugin p)
@@ -61,6 +61,10 @@ public class Messenger {
         
         public static void IsVisible(CommandSender cs){
             cs.sendMessage(ChatColor.BLUE + "You are" + ChatColor.GREEN + " now visible!");
+        }
+
+        public static void DenyConsole(CommandSender cs) {
+            cs.sendMessage(prefix + ChatColor.RED + "This command may only be sent as a player!");
         }
         
        
