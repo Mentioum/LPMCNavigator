@@ -1,0 +1,9 @@
+author: Mentioum
+database: false
+description: Learn to navigate like a pro!
+generator: http://dinnerbone.com/minecraft/tools/pluginator/
+main: me.mentioum.plugins.lpmcnavigator.Lpmcnavigator
+name: LPMCNavigator
+startup: postworld
+url: http://www.mentioum.net/
+version: '1.0'
