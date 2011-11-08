@@ -12,6 +12,7 @@ public class ConfigManager {
         config = plugin.getConfiguration();
         config.load();
         PluginEnabled();
+        config.save();
     }
     
 //    Adding an easy way for Admins to disable the plugin without having to move files around on the server.

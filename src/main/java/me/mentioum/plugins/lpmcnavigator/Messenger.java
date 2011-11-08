@@ -23,14 +23,14 @@ public class Messenger {
             logger = Logger.getLogger("minecraft");
             plugin = p;
             prefix = "[LPMCNavigator] ";
-            LogInfo(prefix + plugin.getDescription().getName() + " V." + plugin.getDescription().getVersion() + " by " + plugin.getDescription().getAuthors() + " startup is disabled.  This plugin is not active.");
+            LogInfo(prefix + plugin.getDescription().getName() + " is disabled in config.yml Plugin will now disable itself!");
         }        
                 public static void Shutdown(Plugin p)
         {
             logger = Logger.getLogger("minecraft");
             plugin = p;
             prefix = "[LPMCNavigator] ";
-            LogInfo(prefix + plugin.getDescription().getName() + " V." + plugin.getDescription().getVersion() + " by " + plugin.getDescription().getAuthors() + " is disabled");
+            LogInfo(prefix + plugin.getDescription().getName() + " V." + plugin.getDescription().getVersion() + " by " + plugin.getDescription().getAuthors() + " is disabled.");
         }
         
         public static void LogInfo(String message)

@@ -12,12 +12,14 @@ public class Lpmcnavigator extends JavaPlugin {
     }
 
     public void onEnable() {
+        
         ConfigManager.Startup(this);
        
         if (ConfigManager.PluginEnabled() != true)
         {
             Messenger.StartupDisabled(this);
-            
+            this.getPluginLoader().disablePlugin(this);
+            return;
         }
         Messenger.Startup(this);
         RegisterEvents();
@@ -26,6 +28,6 @@ public class Lpmcnavigator extends JavaPlugin {
     private void RegisterEvents() 
     {
         PluginManager pm = this.getServer().getPluginManager();
-        pm.registerEvent(Event.Type.PLUGIN_ENABLE, new ServerEvents(), Event.Priority.Normal, this);
+        // pm.registerEvent(Event.Type.PLUGIN_ENABLE, new ServerEvents(), Event.Priority.Normal, this);
     }
 }
