@@ -12,6 +12,12 @@ public class ConfigManager {
         config = plugin.getConfiguration();
         config.load();
         PluginEnabled();
+        PointAtPlayers();
+        CompassInInventory();
+        CompassInHand();
+        PlayersCanHide();
+        HasCooldown();
+        
         config.save();
     }
     
@@ -22,5 +28,31 @@ public class ConfigManager {
     }
     
     
+        public static Boolean PointAtPlayers()
+    {
+        return config.getBoolean("Compasses can point at players", true);
+    }
     
+        
+        public static Boolean CompassInInventory()
+    {
+        return config.getBoolean("Players need to have a compass in their inventory", true);
+    }
+        
+        
+        public static Boolean CompassInHand()
+    {
+        return config.getBoolean("Players need to have a compass in their hand", true);
+    }
+        
+        
+        public static Boolean PlayersCanHide()
+    {
+        return config.getBoolean("Players can hide from compass pointing", true);
+    }
+      
+        public static Boolean HasCooldown()
+    {
+        return config.getBoolean("Navigation Commands will obey cooldowns.", true);
+    }
 }
