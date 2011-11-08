@@ -18,7 +18,13 @@ public class Messenger {
             prefix = "[LPMCNavigator] ";
             LogInfo(prefix + plugin.getDescription().getName() + " V." + plugin.getDescription().getVersion() + " by " + plugin.getDescription().getAuthors() + " is enabled");
         }
-        
+        public static void StartupDisabled(Plugin p)
+        {
+            logger = Logger.getLogger("minecraft");
+            plugin = p;
+            prefix = "[LPMCNavigator] ";
+            LogInfo(prefix + plugin.getDescription().getName() + " V." + plugin.getDescription().getVersion() + " by " + plugin.getDescription().getAuthors() + " startup is disabled.  This plugin is not active.");
+        }        
                 public static void Shutdown(Plugin p)
         {
             logger = Logger.getLogger("minecraft");
