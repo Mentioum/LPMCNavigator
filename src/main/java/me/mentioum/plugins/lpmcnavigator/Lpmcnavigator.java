@@ -30,7 +30,7 @@ public class Lpmcnavigator extends JavaPlugin {
     private void RegisterEvents() 
     {
         PluginManager pm = this.getServer().getPluginManager();
-        // pm.registerEvent(Event.Type.PLUGIN_ENABLE, new ServerEvents(), Event.Priority.Normal, this);
+        
     }
     
     @Override
