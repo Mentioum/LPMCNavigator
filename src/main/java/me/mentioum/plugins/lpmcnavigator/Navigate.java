@@ -41,6 +41,11 @@ public class Navigate implements CommandExecutor {
             {
                 Messenger.NavigatePlayerError(cs);
             }
+            
+            if(args[0].equalsIgnoreCase("hide"))
+            {
+                
+            }    
         }
         
         if (args.length == 2)

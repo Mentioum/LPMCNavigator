@@ -1,5 +1,6 @@
 package me.mentioum.plugins.lpmcnavigator;
 
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Event;
 import org.bukkit.event.Event.Priority;
 import org.bukkit.event.Event.Type;
@@ -28,7 +29,7 @@ public class Lpmcnavigator extends JavaPlugin {
             this.getPluginLoader().disablePlugin(this);
             return;
         }
-        PlayerDataManager.Startup(this);
+        
         Messenger.Startup(this);
         RegisterEvents();
         CommandExecutors();    
@@ -45,6 +46,7 @@ public class Lpmcnavigator extends JavaPlugin {
         navigateExecutor = new Navigate (this);
         getCommand("navigate").setExecutor(navigateExecutor);
     }
+    
     
     
     

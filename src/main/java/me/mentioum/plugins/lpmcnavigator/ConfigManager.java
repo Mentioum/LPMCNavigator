@@ -56,4 +56,6 @@ public class ConfigManager {
         return config.getBoolean("Navigation Commands will obey cooldowns.", true);
     }
 
+
+
 }
