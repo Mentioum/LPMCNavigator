@@ -15,14 +15,14 @@ public class Messenger {
         {
             logger = Logger.getLogger("minecraft");
             plugin = p;
-            prefix = "[LPMCNavigator] ";
+            prefix = ChatColor.GREEN + "[LPMCNavigator] " + ChatColor.WHITE;
             LogInfo(prefix + plugin.getDescription().getName() + " V." + plugin.getDescription().getVersion() + " by " + plugin.getDescription().getAuthors() + " is enabled");
         }
         public static void StartupDisabled(Plugin p)
         {
             logger = Logger.getLogger("minecraft");
             plugin = p;
-            prefix = ChatColor.BLUE + "[LPMCNavigator] " + ChatColor.WHITE;
+            prefix = (ChatColor.BLUE + "[LPMCNavigator] " + ChatColor.WHITE);
             LogInfo(prefix + plugin.getDescription().getName() + " is disabled in config.yml Plugin will now disable itself!");
         }        
                 public static void Shutdown(Plugin p)
@@ -67,7 +67,41 @@ public class Messenger {
             cs.sendMessage(prefix + ChatColor.RED + "This command may only be sent as a player!");
         }
         
-       
+        public static void PlayerMessage(CommandSender cs, String message){
+            cs.sendMessage(prefix + message);
+        }
         
+        public static void HelpMessage(CommandSender cs)
+        {
+            cs.sendMessage(prefix + ChatColor.GREEN + "- [Help File]");
+            cs.sendMessage("/navigate                 " + ChatColor.BLUE + "- Shows this help message.");
+            cs.sendMessage("/navigate reload          " + ChatColor.BLUE + "- Reloads database.");
+            cs.sendMessage("/navigate player <name>   " + ChatColor.BLUE + "- Points compass at <playername>");
+            cs.sendMessage("/navigate location <name> " + ChatColor.BLUE + "- Points compass at <location>");
+
+            
+        }
+        
+        public static void SendCoords (CommandSender cs, int[] coord, String loc)
+        {
+            cs.sendMessage(prefix + ChatColor.GREEN + "- [Compass pointed at "+ ChatColor.WHITE + loc + ChatColor.GREEN + ".]");
+            cs.sendMessage(ChatColor.BLUE + "X :  " + ChatColor.WHITE + coord[0]);
+            cs.sendMessage(ChatColor.BLUE + "Y :  " + ChatColor.WHITE + coord[1]);
+            cs.sendMessage(ChatColor.BLUE + "Z :  " + ChatColor.WHITE + coord[2]);
+        }
+        
+        public static void NavigateLocationError (CommandSender cs)
+        {   
+            cs.sendMessage(prefix);
+            cs.sendMessage(ChatColor.RED + "Incorrect Syntax - Please write as below:");
+            cs.sendMessage(ChatColor.BLUE + "/navigate location <locationname>");
+        }
+        
+            public static void NavigateBedError (CommandSender cs)
+        {   
+            cs.sendMessage(prefix);
+            cs.sendMessage(ChatColor.RED + "You do not have a bed spawn point yet!");
+            cs.sendMessage(ChatColor.BLUE + "Try sleeping in a bed to set your bed spawn point.");
+        }
 }
 

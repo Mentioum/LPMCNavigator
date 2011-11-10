@@ -7,3 +7,9 @@ name: LPMCNavigator
 startup: postworld
 url: http://www.mentioum.net/
 version: '1.0'
+commands:
+  navigate:
+    description: Displays help information for LPMCNavigator.
+    usage: /navigate for help.
+    aliases: [nav, navi, navigation, nv]
+    

@@ -9,11 +9,16 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 public class Lpmcnavigator extends JavaPlugin {
-    public void onDisable() {
+    
+    private Navigate navigateExecutor;
+    
+    public void onDisable() 
+    {
         Messenger.Shutdown(this);
     }
 
-    public void onEnable() {
+    public void onEnable() 
+    {
         
         ConfigManager.Startup(this);
        
@@ -23,22 +28,27 @@ public class Lpmcnavigator extends JavaPlugin {
             this.getPluginLoader().disablePlugin(this);
             return;
         }
+        
         Messenger.Startup(this);
         RegisterEvents();
+        CommandExecutors();
+        
+        
     }
 
+    
     private void RegisterEvents() 
     {
-        PluginManager pm = this.getServer().getPluginManager();
+        PluginManager pm = this.getServer().getPluginManager();  
         
+    }
+
+    private void CommandExecutors() 
+    {
+        navigateExecutor = new Navigate (this);
+        getCommand("navigate").setExecutor(navigateExecutor);
     }
     
-    @Override
-    public boolean onCommand(CommandSender cs, Command cmd, String label, String[] args)
-    { 
-        if(label.equalsIgnoreCase("navigate")) Navigate.Execute(cs, args); 
-        
-        return true;
-        
-    }
+    
+    
 }

@@ -20,6 +20,7 @@ public class ConfigManager {
         
         config.save();
     }
+   
     
 //    Adding an easy way for Admins to disable the plugin without having to move files around on the server.
     public static Boolean PluginEnabled()
@@ -55,4 +56,5 @@ public class ConfigManager {
     {
         return config.getBoolean("Navigation Commands will obey cooldowns.", true);
     }
+
 }
