@@ -56,17 +56,14 @@ public class Navigate implements CommandExecutor {
                 if(args[1].equalsIgnoreCase("bed"))
                 {
                     String loc = args[1];
-                    LocationListener.Bed(cs, loc);
-                    
+                    LocationListener.Bed(cs, loc);    
                 }
             }
             
             if(args[0].equalsIgnoreCase("player")||args[0].equalsIgnoreCase("pl")||args[0].equalsIgnoreCase("p"))
             {
                 String targetPlayer = args[1];
-                LocationListener.Player(cs, targetPlayer);
-                
-                
+                LocationListener.Player(cs, targetPlayer);              
             }
             
         }

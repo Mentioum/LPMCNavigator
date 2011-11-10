@@ -17,7 +17,6 @@ public class ConfigManager {
         CompassInHand();
         PlayersCanHide();
         HasCooldown();
-        
         config.save();
     }
    

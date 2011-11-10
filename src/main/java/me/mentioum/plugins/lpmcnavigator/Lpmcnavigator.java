@@ -20,6 +20,7 @@ public class Lpmcnavigator extends JavaPlugin {
     public void onEnable() 
     {    
         ConfigManager.Startup(this);
+        
        
         if (ConfigManager.PluginEnabled() != true)
         {
@@ -27,7 +28,7 @@ public class Lpmcnavigator extends JavaPlugin {
             this.getPluginLoader().disablePlugin(this);
             return;
         }
-        
+        PlayerDataManager.Startup(this);
         Messenger.Startup(this);
         RegisterEvents();
         CommandExecutors();    

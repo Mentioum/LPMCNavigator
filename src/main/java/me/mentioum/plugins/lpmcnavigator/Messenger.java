@@ -83,9 +83,9 @@ public class Messenger {
         public static void HelpMessage(CommandSender cs)
         {
             cs.sendMessage(prefix + ChatColor.GREEN + "- [Help File]");
-            cs.sendMessage("/navigate                 " + ChatColor.BLUE + "- Shows this help message.");
-            cs.sendMessage("/navigate reload          " + ChatColor.BLUE + "- Reloads database.");
-            cs.sendMessage("/navigate player <name>   " + ChatColor.BLUE + "- Points compass at <playername>");
+            cs.sendMessage("/navigate " + ChatColor.BLUE + "- Shows this help message.");
+            cs.sendMessage("/navigate reload " + ChatColor.BLUE + "- Reloads database.");
+            cs.sendMessage("/navigate player <name> " + ChatColor.BLUE + "- Points compass at <playername>");
             cs.sendMessage("/navigate location <name> " + ChatColor.BLUE + "- Points compass at <location>");   
         }
         
