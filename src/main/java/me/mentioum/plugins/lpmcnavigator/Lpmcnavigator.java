@@ -18,8 +18,7 @@ public class Lpmcnavigator extends JavaPlugin {
     }
 
     public void onEnable() 
-    {
-        
+    {    
         ConfigManager.Startup(this);
        
         if (ConfigManager.PluginEnabled() != true)
@@ -31,16 +30,13 @@ public class Lpmcnavigator extends JavaPlugin {
         
         Messenger.Startup(this);
         RegisterEvents();
-        CommandExecutors();
-        
-        
+        CommandExecutors();    
     }
 
     
     private void RegisterEvents() 
     {
-        PluginManager pm = this.getServer().getPluginManager();  
-        
+        PluginManager pm = this.getServer().getPluginManager();      
     }
 
     private void CommandExecutors() 

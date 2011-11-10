@@ -1,4 +1,5 @@
 package me.mentioum.plugins.lpmcnavigator;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -35,6 +36,11 @@ public class Navigate implements CommandExecutor {
             {
                 Messenger.NavigateLocationError(cs);
             }
+            
+            if(args[0].equalsIgnoreCase("player")||args[0].equalsIgnoreCase("pl")||args[0].equalsIgnoreCase("p"))
+            {
+                Messenger.NavigatePlayerError(cs);
+            }
         }
         
         if (args.length == 2)
@@ -53,6 +59,14 @@ public class Navigate implements CommandExecutor {
                     LocationListener.Bed(cs, loc);
                     
                 }
+            }
+            
+            if(args[0].equalsIgnoreCase("player")||args[0].equalsIgnoreCase("pl")||args[0].equalsIgnoreCase("p"))
+            {
+                String targetPlayer = args[1];
+                LocationListener.Player(cs, targetPlayer);
+                
+                
             }
             
         }

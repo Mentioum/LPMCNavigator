@@ -25,7 +25,8 @@ public class Messenger {
             prefix = (ChatColor.BLUE + "[LPMCNavigator] " + ChatColor.WHITE);
             LogInfo(prefix + plugin.getDescription().getName() + " is disabled in config.yml Plugin will now disable itself!");
         }        
-                public static void Shutdown(Plugin p)
+        
+        public static void Shutdown(Plugin p)
         {
             logger = Logger.getLogger("minecraft");
             plugin = p;
@@ -38,36 +39,44 @@ public class Messenger {
 		logger.info(message);
 	}
     
-        public static void Reloaded(CommandSender cs){
+        public static void Reloaded(CommandSender cs)
+        {
             cs.sendMessage(ChatColor.BLUE + "LPMCNavigator configuration file" + ChatColor.GREEN + " reloaded" + ChatColor.BLUE +".");
             logger.info(prefix+ " " + cs + "has reloaded the configuration file");   
         }
     
-        public static void Hidden(CommandSender cs){
+        public static void Hidden(CommandSender cs)
+        {
             cs.sendMessage(ChatColor.BLUE + "You are "+ ChatColor.RED + "already hidden!");
         }
         
-        public static void NowHidden(CommandSender cs){
+        public static void NowHidden(CommandSender cs)
+        {
         cs.sendMessage(ChatColor.BLUE + "You are" + ChatColor.GREEN + " now hidden!"); 
         }
         
-        public static void IsDisabled(CommandSender cs){
+        public static void IsDisabled(CommandSender cs)
+        {
             cs.sendMessage(ChatColor.BLUE + "This feature is" + ChatColor.RED + " disabled" + ChatColor.BLUE + " on this server.");
         }
         
-        public static void Visible(CommandSender cs){
+        public static void Visible(CommandSender cs)
+        {
             cs.sendMessage(ChatColor.BLUE + "You are "+ ChatColor.RED + "already visible!");
         }
         
-        public static void IsVisible(CommandSender cs){
+        public static void IsVisible(CommandSender cs)
+        {
             cs.sendMessage(ChatColor.BLUE + "You are" + ChatColor.GREEN + " now visible!");
         }
 
-        public static void DenyConsole(CommandSender cs) {
+        public static void DenyConsole(CommandSender cs) 
+        {
             cs.sendMessage(prefix + ChatColor.RED + "This command may only be sent as a player!");
         }
         
-        public static void PlayerMessage(CommandSender cs, String message){
+        public static void PlayerMessage(CommandSender cs, String message)
+        {
             cs.sendMessage(prefix + message);
         }
         
@@ -77,9 +86,7 @@ public class Messenger {
             cs.sendMessage("/navigate                 " + ChatColor.BLUE + "- Shows this help message.");
             cs.sendMessage("/navigate reload          " + ChatColor.BLUE + "- Reloads database.");
             cs.sendMessage("/navigate player <name>   " + ChatColor.BLUE + "- Points compass at <playername>");
-            cs.sendMessage("/navigate location <name> " + ChatColor.BLUE + "- Points compass at <location>");
-
-            
+            cs.sendMessage("/navigate location <name> " + ChatColor.BLUE + "- Points compass at <location>");   
         }
         
         public static void SendCoords (CommandSender cs, int[] coord, String loc)
@@ -97,7 +104,21 @@ public class Messenger {
             cs.sendMessage(ChatColor.BLUE + "/navigate location <locationname>");
         }
         
-            public static void NavigateBedError (CommandSender cs)
+        public static void NavigatePlayerError (CommandSender cs)
+        {   
+            cs.sendMessage(prefix);
+            cs.sendMessage(ChatColor.RED + "Incorrect Syntax - Please write as below:");
+            cs.sendMessage(ChatColor.BLUE + "/navigate player <playername - supports unique identifiers.>");
+        }
+        
+        public static void NavigatePlayerOffline (CommandSender cs, String targetPlayer)
+        {   
+            cs.sendMessage(prefix);
+            cs.sendMessage(ChatColor.RED + "There is no-one online with the name "+ ChatColor.WHITE + targetPlayer + ChatColor.RED +" or with a name which starts with "+ ChatColor.WHITE + targetPlayer + ChatColor.RED + ".");
+            cs.sendMessage(ChatColor.BLUE + "/navigate player <playername - supports unique identifiers and not case sensitive.>");
+        }
+        
+        public static void NavigateBedError (CommandSender cs)
         {   
             cs.sendMessage(prefix);
             cs.sendMessage(ChatColor.RED + "You do not have a bed spawn point yet!");
