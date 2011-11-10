@@ -28,8 +28,6 @@ public class LocationListener extends PlayerListener {
         Location bed = player.getBedSpawnLocation();
         player.setCompassTarget(bed);
         
-        
-        
         if(bed == null)
         {
             Messenger.NavigateBedError(cs);
