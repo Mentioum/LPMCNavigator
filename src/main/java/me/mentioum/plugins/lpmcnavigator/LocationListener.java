@@ -44,19 +44,25 @@ public class LocationListener extends PlayerListener {
     static void Player(CommandSender cs, String targetPlayer) 
     {
         Player player = (Player)cs;
-        Player matchedTargetPlayer = Bukkit.getServer().matchPlayer(targetPlayer).get(0);
-        
+        Player matchedTargetPlayer = Helpers.matchUniquePlayer(cs, targetPlayer);
         if (matchedTargetPlayer == null)
         {
-            Messenger.NavigatePlayerOffline(cs, targetPlayer);
-            return;
+            String targetList = Helpers.matchUniquePlayers(cs, targetPlayer);
+            if (targetList == null)
+            {
+                Messenger.NavigatePlayerOffline(cs, targetPlayer);
+                return;
+            }       
+            Messenger.ListMatchedPlayers(cs, targetList);
         }
-        
         Location targetPlayerLocation = matchedTargetPlayer.getLocation();
         player.setCompassTarget(targetPlayerLocation);
         int[] coord = {(int)targetPlayerLocation.getX(),(int)targetPlayerLocation.getY() ,(int)targetPlayerLocation.getZ()};
-        Messenger.SendCoords(cs, coord, targetPlayer);
+        String matchedTargetPlayerString = matchedTargetPlayer.getDisplayName();
+        Messenger.SendCoords(cs, coord, matchedTargetPlayerString);
+        return;
     }
+    
         
     
     

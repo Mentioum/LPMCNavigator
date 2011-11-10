@@ -1,5 +1,7 @@
 package me.mentioum.plugins.lpmcnavigator;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -91,7 +93,7 @@ public class Messenger {
         
         public static void SendCoords (CommandSender cs, int[] coord, String loc)
         {
-            cs.sendMessage(prefix + ChatColor.GREEN + "- [Compass pointed at "+ ChatColor.WHITE + loc + ChatColor.GREEN + ".]");
+            cs.sendMessage(prefix + ChatColor.GREEN + "- [Compass pointed at "+ ChatColor.WHITE + loc + ChatColor.GREEN + "]");
             cs.sendMessage(ChatColor.BLUE + "X :  " + ChatColor.WHITE + coord[0]);
             cs.sendMessage(ChatColor.BLUE + "Y :  " + ChatColor.WHITE + coord[1]);
             cs.sendMessage(ChatColor.BLUE + "Z :  " + ChatColor.WHITE + coord[2]);
@@ -114,7 +116,7 @@ public class Messenger {
         public static void NavigatePlayerOffline (CommandSender cs, String targetPlayer)
         {   
             cs.sendMessage(prefix);
-            cs.sendMessage(ChatColor.RED + "There is no-one online with the name "+ ChatColor.WHITE + targetPlayer + ChatColor.RED +" or with a name which starts with "+ ChatColor.WHITE + targetPlayer + ChatColor.RED + ".");
+            cs.sendMessage(ChatColor.RED + "There is no-one online with the unique-identifier "+ ChatColor.WHITE + targetPlayer + ChatColor.RED +".");
             cs.sendMessage(ChatColor.BLUE + "/navigate player <playername - supports unique identifiers and not case sensitive.>");
         }
         
@@ -123,6 +125,13 @@ public class Messenger {
             cs.sendMessage(prefix);
             cs.sendMessage(ChatColor.RED + "You do not have a bed spawn point yet!");
             cs.sendMessage(ChatColor.BLUE + "Try sleeping in a bed to set your bed spawn point.");
+        }
+        
+        public static void ListMatchedPlayers (CommandSender cs, String targetlist)
+        {
+            cs.sendMessage(prefix + ChatColor.GREEN + "[Multiple Matching Online Users]");
+            cs.sendMessage(ChatColor.RED + "Please be more specific from the list below:");
+            cs.sendMessage(ChatColor.BLUE + targetlist);
         }
 }
 
